@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ss_ssl_cs</string>
+    <string name="button">Connect...</string>
+    <string name="enter_ssl_url">Enter SSL URL</string>
+    <string name="hint_for_edit">https://ip.ip.ip.ip:port</string>
+
+</resources>
