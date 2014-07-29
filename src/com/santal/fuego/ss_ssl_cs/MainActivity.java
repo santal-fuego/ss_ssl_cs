@@ -6,28 +6,30 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-
-//import android.view.Menu;
-//import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
 	Button btnConnect;
 	EditText editURL;
+	TextView txtUsrMsg;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
-		Button btnConnect = (Button) findViewById(R.id.button1);
-		EditText editURL = (EditText) findViewById(R.id.editText1);
+		btnConnect = (Button) findViewById(R.id.button1);
+		editURL = (EditText) findViewById(R.id.editText1);
+		txtUsrMsg = (TextView) findViewById(R.id.textView2);
 		
 		OnClickListener oclBtnConnect = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				txtUsrMsg.setText("You enter " + editURL.getText());
 			}
 		};
+		
+		btnConnect.setOnClickListener(oclBtnConnect);
 	}
 }
