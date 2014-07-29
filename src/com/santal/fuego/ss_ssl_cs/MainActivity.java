@@ -12,6 +12,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class MainActivity extends Activity {
 
@@ -32,13 +34,12 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				txtUsrMsg.setText("You enter " + editURL.getText());
+				
+				new GetSSLContent().execute(editURL.getText().toString());
 
-				URL url = new URL((editURL.getText()).toString());
-				URLConnection urlConnection = url.openConnection();
-				InputStream in = urlConnection.getInputStream();
-				copyInputStreamToOutputStream(in, System.out);
-				
-				
+				//System.out.println("Error: " + e.getMessage());
+		        //e.printStackTrace();
+
 			}
 		};
 		
