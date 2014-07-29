@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.net.URL;
+import java.net.URLConnection;
+import java.io.InputStream;
+import java.io.PrintStream;
+
 public class MainActivity extends Activity {
 
 	Button btnConnect;
@@ -27,6 +32,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				txtUsrMsg.setText("You enter " + editURL.getText());
+
+				URL url = new URL((editURL.getText()).toString());
+				URLConnection urlConnection = url.openConnection();
+				InputStream in = urlConnection.getInputStream();
+				copyInputStreamToOutputStream(in, System.out);
+				
+				
 			}
 		};
 		
