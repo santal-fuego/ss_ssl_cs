@@ -2,18 +2,13 @@ package com.santal.fuego.ss_ssl_cs;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.security.KeyChain;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.net.URL;
-import java.net.URLConnection;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 
 public class MainActivity extends Activity {
 
@@ -36,13 +31,18 @@ public class MainActivity extends Activity {
 				txtUsrMsg.setText("You enter " + editURL.getText());
 				
 				new GetSSLContent().execute(editURL.getText().toString());
-
+				
 				//System.out.println("Error: " + e.getMessage());
 		        //e.printStackTrace();
 
 			}
 		};
 		
-		btnConnect.setOnClickListener(oclBtnConnect);
+		//btnConnect.setOnClickListener(oclBtnConnect);
+		OnClickListener oclBtnConnectKeystore = new KeystoreTest();
+		btnConnect.setOnClickListener(oclBtnConnectKeystore);
+		
+
+		
 	}
 }

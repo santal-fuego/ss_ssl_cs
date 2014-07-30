@@ -7,8 +7,6 @@ import java.net.URLConnection;
 import android.os.AsyncTask;
 
 public class GetSSLContent extends AsyncTask <String, Void, InputStream> {
-	private Exception exception;
-
 	@Override
 	protected InputStream doInBackground(String... urls) {
 		URL url;
@@ -23,7 +21,6 @@ public class GetSSLContent extends AsyncTask <String, Void, InputStream> {
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 	        e.printStackTrace();
-			this.exception = e;
 			return null;
 		} //catch
 		
